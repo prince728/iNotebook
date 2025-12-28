@@ -2,11 +2,11 @@ import Notes from "./Notes"
 
 
 
-function HomePage() {
-
+function HomePage(props) {
+  const {showAlert} = props;
   return (
     <div>
-      <Notes/>
+      <Notes showAlert={showAlert}/>
     </div>
   )
 }

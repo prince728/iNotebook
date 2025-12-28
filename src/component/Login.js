@@ -2,7 +2,7 @@ import e from 'cors'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'; 
 
-const Login = () => {
+const Login = (props) => {
     const [credentials, setCredentials] = useState({email:"", password:""})
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
@@ -16,14 +16,14 @@ const Login = () => {
             body: JSON.stringify({ email: credentials.email ,  password: credentials.password })
         });
         const json = await response.json();
-        console.log(json);
         if (json.success) {
             //save the authtoken and redirect
-            localStorage.setItem('token', json.authoken);
-            navigate('/', { replace: true });
+            localStorage.setItem('token', json.authToken);
+            navigate('/');
+            props.showAlert("Loggedin successfully", "success");
         }
         else{
-            alert("invalid credentials");
+            props.showAlert("invalid details", "danger")
         }
     }
 
@@ -36,6 +36,8 @@ const Login = () => {
 
 
     return (
+        <>
+        <h2 className='my-3 mx-3'>Login to contine to iNotebook</h2>
         <form onSubmit={handleSubmit} >
             <div className="mb-3">
                 <label htmlFor="email" className="form-label">Email address</label>
@@ -47,6 +49,7 @@ const Login = () => {
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>
+        </>
     )
 }
 
