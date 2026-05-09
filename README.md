@@ -1,70 +1,204 @@
-# Getting Started with Create React App
+# iNotebook 📝
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A secure cloud-based note management application built with the **MERN Stack** that allows users to create, edit, organize, and manage their personal notes from anywhere.
 
-## Available Scripts
+## 🚀 Overview
 
-In the project directory, you can run:
+iNotebook is a full-stack web application designed to provide users with a simple and secure platform for storing important notes online. It includes authentication, CRUD functionality, and a responsive user interface for a smooth user experience.
 
-### `npm start`
+This project demonstrates practical implementation of:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Frontend development with React
+- Backend API development with Node.js & Express
+- Database integration using MongoDB
+- User authentication & authorization
+- State management and API handling
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 🔐 User Authentication (Register/Login)
+- 📝 Create Notes
+- ✏️ Edit Existing Notes
+- ❌ Delete Notes
+- ☁️ Cloud Storage for Notes
+- 📱 Responsive UI
+- 🔒 Protected Routes
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠 Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Frontend
+- React.js
+- JavaScript
+- Bootstrap / CSS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Backend
+- Node.js
+- Express.js
 
-### `npm run eject`
+### Database
+- MongoDB
+- Mongoose
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Authentication
+- JWT (JSON Web Token)
+- bcrypt.js
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📂 Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+iNotebook/
+│
+├── backend/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── controllers/
+│   └── server.js
+│
+├── frontend/
+│   ├── src/
+│   ├── components/
+│   ├── context/
+│   └── App.js
+│
+└── README.md
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## ⚙️ Installation & Setup
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 1. Clone the repository
 
-### Code Splitting
+```bash
+git clone https://github.com/prince728/iNotebook.git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 2. Navigate into project
 
-### Analyzing the Bundle Size
+```bash
+cd iNotebook
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 3. Install dependencies
 
-### Making a Progressive Web App
+#### Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+cd backend
+npm install
+```
 
-### Advanced Configuration
+#### Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm install
+```
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🔑 Environment Variables
 
-### `npm run build` fails to minify
+Create a `.env` file inside backend folder:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
+```
+
+⚠️ Never upload your `.env` file to GitHub.
+
+---
+
+## ▶️ Running the Project
+
+### Start Backend
+
+```bash
+npm run server
+```
+
+### Start Frontend
+
+```bash
+npm start
+```
+
+Frontend runs on:
+
+```bash
+http://localhost:3000
+```
+
+Backend runs on:
+
+```bash
+http://localhost:5000
+```
+
+---
+
+## API Endpoints
+
+### Authentication
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register user |
+| POST | `/api/auth/login` | Login user |
+
+### Notes
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/notes` | Fetch all notes |
+| POST | `/api/notes` | Create note |
+| PUT | `/api/notes/:id` | Update note |
+| DELETE | `/api/notes/:id` | Delete note |
+
+---
+
+## 📸 Screenshots
+
+Add your project screenshots here.
+
+Example:
+
+- Login Page
+- Signup Page
+- Dashboard
+- Notes Page
+
+---
+
+## 🎯 Learning Outcomes
+
+This project helped me understand:
+
+- REST API development
+- Authentication systems
+- MongoDB schema design
+- React state management
+- Full-stack application deployment
+
+---
+
+## 👨‍💻 Author
+
+**Prince**
+
+GitHub:  
+https://github.com/prince728
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a star on GitHub.
