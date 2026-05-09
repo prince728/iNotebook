@@ -6,7 +6,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const fetchUser =  require('../middleware/fetchUser')
 
-const JWT_SECRET = "your_jwt_secret_key_here";
 
 
 //create a user using POST "/api/auth/createuser". No login required
@@ -40,7 +39,7 @@ router.post('/createuser', [
                 id: user.id
             }
         }
-        const authToken = jwt.sign(data, JWT_SECRET);
+        const authToken = jwt.sign(data, process.env.JWT_SECRET);
         success= true;
         res.json({success, authToken });
     } catch (error) {
@@ -74,7 +73,7 @@ router.post('/login',
                     id: user.id
                 }
             }
-            const authToken = jwt.sign(data, JWT_SECRET);
+            const authToken = jwt.sign(data, process.env.JWT_SECRET);
             success = true;
             res.json({ success, authToken });
         } catch (error) {
@@ -98,4 +97,6 @@ router.post('/getuser',fetchUser, async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 })
+
+
 module.exports = router;

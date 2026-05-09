@@ -6,10 +6,20 @@ const { body, validationResult } = require('express-validator');
 
 
 //ROUTE-1 : get all the notes using : GET"/api/notes/fetchallnotes". Login required     
+// routes/notes.js
 router.get('/fetchallnotes', fetchUser, async (req, res) => {
-    const notes = await Notes.find({ user: req.user.id });
-    res.json(notes);
+    try {
+        const notes = await Notes.find({ user: req.user.id });
+        res.json(notes);
+    } catch (error) {
+        console.error(error.message);
+        // If next() was already called by a failing middleware, 
+        // this line will trigger the "Headers already sent" error.
+        res.status(500).send("Internal Server Error");
+    }
+
 })
+
 
 //ROUTE-2 : add a new note using : POST"/api/notes/addnote". Login required  
 router.post('/addnotes', fetchUser, [
